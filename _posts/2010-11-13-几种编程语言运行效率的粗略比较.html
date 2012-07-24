@@ -1,0 +1,274 @@
+---
+layout: post
+title: 几种编程语言运行效率的粗略比较
+category: Tech
+tags:
+- Bash
+- C++
+- Perl
+- Python
+- Ruby
+- 效率
+- 比较
+published: true
+comments: true
+---
+<p>本文通过计算 Fibonacci 数列来比较几种编程语言的运行效率，包括常见的 3 类编程语言：编译性语言（C++），解释性语言（Perl, Python, Ruby）和脚本语言（Bash）。Fibonacci 数列有多种算法，这里使用的是递归法。</p>
+
+<p>说明：各种语言各有所长，对不同的操作效率不尽相同。这里只看了一种情况，是极为粗略的比较，权当娱乐了 ~~</p>
+
+<p>程序运行环境：
+<pre lang="text">
+CPU: Intel T2350
+Memory: 1GB
+OS: Fedora 14
+Linux Kernel: 2.6.35.6-48.fc14.i686﻿</pre></p>
+
+<p>各种编译器 / 解释器版本信息（本人比较关注 Ruby，所以评测了两个版本的 Ruby 解释器）：
+<pre lang="text">
+gcc version 4.5.1 20100924 (Red Hat 4.5.1-4) (GCC)
+perl 5, version 12, subversion 2 (v5.12.2) built for i386-linux-thread-multi
+Python 2.7 (r27:82500, Sep 16 2010, 18:03:06)
+ruby 1.8.7 (2010-08-16 patchlevel 302) [i386-linux]
+ruby 1.9.2p35 (2010-11-02 revision 29665) [i686-linux]
+GNU bash, version 4.1.7(1)-release (i386-redhat-linux-gnu)</pre></p>
+
+<p>程序代码如下：<br />
+C++版（fibonacci.cpp）
+<pre lang="cpp" line="1">
+#include <iostream>
+#include <cstdlib /></iostream></pre></p>
+
+<p>int fibonacci(int i) {<br />
+    if (i <= 1) {<br />
+        return i;<br />
+    } else {<br />
+        return fibonacci(i-1) + fibonacci(i-2);<br />
+    }<br />
+}</p>
+
+<p>int main(int argc, char* argv[]) {<br />
+    if (argc < 2) {<br />
+        std::cerr << "Usage: " << argv[0] << " number" << std::endl;<br />
+    } else {<br />
+        int n = atoi(argv[1]);<br />
+        std::cout << "F(" << n << ") = " << fibonacci(n) << std::endl;<br />
+    }<br />
+    return 0;<br />
+}</p>
+
+<p>Perl 版（fibonacci.pl）
+<pre lang="perl" line="1">
+#!/usr/bin/perl
+use strict;</pre></p>
+
+<p>sub fibonacci {<br />
+    my $i = shift;<br />
+    return $i if $i <= 1;<br />
+    return fibonacci($i-1) + fibonacci($i-2) if $i > 1;<br />
+}</p>
+
+<p>if (@ARGV < 1) {<br />
+    print STDERR "Usage: $0 number\n";<br />
+} else {<br />
+    my $n = shift @ARGV;<br />
+    print "F($n) = ", fibonacci($n), "\n";<br />
+}</p>
+
+<p>Python 版（fibonacci.py）
+<pre lang="python" line="1">
+#!/usr/bin/env python
+import sys</pre></p>
+
+<p>def fibonacci(i):<br />
+    if i <= 1:<br />
+        return i<br />
+    else:<br />
+        return fibonacci(i-1) + fibonacci(i-2)</p>
+
+<p>if len(sys.argv) < 2:<br />
+    print "Usage: %s number" % sys.argv[0]<br />
+else:<br />
+    n = int(sys.argv[1])<br />
+    print "F(%d) = %d" % (n, fibonacci(n))</p>
+
+<p>Ruby 版（fibonacci.rb）
+<pre lang="ruby" line="1">
+#!/usr/bin/ruby</pre></p>
+
+<p>def fibonacci(i)<br />
+    if i <= 1<br />
+        return i<br />
+    else<br />
+        return fibonacci(i-1) + fibonacci(i-2)<br />
+    end<br />
+end</p>
+
+<p>if ARGV.length < 1<br />
+    puts "Usage: #{$0} number"<br />
+else<br />
+    n = ARGV[0].to_i<br />
+    puts "F(#{n}) = #{fibonacci(n)}"<br />
+end</p>
+
+<p>Bash 版（fibonacci.sh）
+<pre lang="bash" line="1">
+#!/bin/bash</pre></p>
+
+<p>function fibonacci {<br />
+    i=$1<br />
+    if [ $i -le 1 ]; then<br />
+        echo "$1"<br />
+    else<br />
+        (( --i ))<br />
+        first=$( fibonacci $i )<br />
+        (( --i ))<br />
+        second=$( fibonacci $i )<br />
+        echo $(( first + second ))<br />
+    fi<br />
+}</p>
+
+<p>if [ -z $1 ]; then<br />
+    echo "Usage: $0 number"<br />
+else<br />
+    result=$( fibonacci $1 )<br />
+    echo "F($1) = $result"<br />
+fi</p>
+
+<p>主程序用 Ruby，使用 Gruff 模块来画图
+<pre lang="ruby" line="1">
+#!/usr/bin/ruby
+require 'rubygems'
+require 'gruff'</pre></p>
+
+<p>withBash = false # Flag to turn Bash on or off<br />
+if withBash<br />
+    $max = 20 # Maximum of n<br />
+else<br />
+    $max = 32<br />
+end<br />
+$timeOf = {}</p>
+
+<p># Method to profile time consuming<br />
+def profile desciption, &block<br />
+    time = []<br />
+    (2..$max).each do |n|<br />
+        next if (n % 2) != 0<br />
+        startTime = Time.now<br />
+        block.call(n)<br />
+        duration = Time.now - startTime<br />
+#        puts desciption + ": " + duration.to_s + " seconds"<br />
+        time.push(duration)<br />
+    end<br />
+    time<br />
+end</p>
+
+<p># Method to plot graph with Gruff<br />
+def gruffPlot(num, withBash)<br />
+    targets = ["C++", "Perl", "Ruby-1.8.7", "Ruby-1.9.2", "Python"]<br />
+    if withBash<br />
+        targets.push("Bash")<br />
+    end</p>
+
+<p>    g = Gruff::Line.new<br />
+    g.title = "Time Consuming of Fibonacci Number in Several Programming Languages"<br />
+    g.title_font_size = 18</p>
+
+<p>    targets.each do |language|<br />
+        g.data(language, $timeOf[language][0..(num/2-1)])<br />
+    end</p>
+
+<p>    # Set labels of x-axis<br />
+    g.labels = {}<br />
+    (2..num).each do |i|<br />
+        if (i % 2) == 0 # Even number<br />
+            g.labels[i/2-1] = i.to_s<br />
+        end<br />
+    end</p>
+
+<p>    g.x_axis_label = "n"<br />
+    g.y_axis_label = "Time (seconds)"</p>
+
+<p>    if withBash<br />
+        filename = "graphWithBash_" + num.to_s + ".png"<br />
+    else<br />
+        filename = "graphNoBash_" + num.to_s + ".png" end</p>
+
+<p>    g.write(filename)<br />
+end</p>
+
+<p>$timeOf["C++"] = profile "C++ version" do |n|<br />
+    `./fibonacci_cpp #{n}`<br />
+end<br />
+$timeOf["Perl"] = profile "Perl version" do |n|<br />
+    `./fibonacci.pl #{n}`<br />
+end<br />
+$timeOf["Ruby-1.8.7"] = profile "Ruby-1.8.7 version" do |n|<br />
+    `./fibonacci.rb #{n}`<br />
+end<br />
+$timeOf["Ruby-1.9.2"] = profile "Ruby-1.9.2 version" do |n|<br />
+    `~/.rvm/rubies/ruby-1.9.2-head/bin/ruby ./fibonacci.rb #{n}`<br />
+end<br />
+$timeOf["Python"] = profile "Python version" do |n|<br />
+    `./fibonacci.py #{n}`<br />
+end</p>
+
+<p>if withBash<br />
+    $timeOf["Bash"] = profile "Bash version" do |n|<br />
+        `./fibonacci.sh #{n}`<br />
+    end<br />
+    [12, 16, $max].each do |num|<br />
+        gruffPlot(num, true)<br />
+    end<br />
+else # No Bash<br />
+    [16, 24, $max].each do |num|<br />
+        gruffPlot(num, false)<br />
+    end<br />
+end</p>
+
+<p>$timeOf.each do |key, val|<br />
+    puts key + ": " + val.join(" ")<br />
+end</p>
+
+<p>在 n 取不同值下各个版本程序的运行时间（本来想用表格的，发现一行放不完，多行/转置太麻烦了，凑合着看吧 :-）：
+<pre lang="text">
+# No Bash (n = 2, 4, ..., 32)
+C++: 0.014616 0.005932 0.006124 0.006147 0.006429 0.006814 0.008096 0.005878 0.007844 0.009254 0.009913 0.010877 0.015585 0.025772 0.026195 0.060132
+Ruby-1.9.2: 0.025062 0.022758 0.017313 0.020393 0.020181 0.020269 0.020819 0.020977 0.025425 0.032843 0.026662 0.043297 0.081736 0.183789 0.456225 1.170084
+Perl: 0.015518 0.016121 0.017061 0.017639 0.020361 0.019265 0.023919 0.025519 0.034577 0.052177 0.063214 0.143937 0.358551 0.90879 2.393584 6.134109
+Python: 0.072047 0.064298 0.058883 0.058075 0.056147 0.058195 0.057439 0.057393 0.058493 0.069465 0.083222 0.109321 0.197521 0.415247 0.994579 2.503102
+Ruby-1.8.7: 0.020334 0.012589 0.010816 0.01228 0.013191 0.017026 0.023844 0.033048 0.05195 0.065379 0.138034 0.316718 0.798044 2.073424 5.383572 14.39978</pre></p>
+
+<p># With Bash (n = 2, 4, ..., 20)<br />
+C++: 0.008331 0.003803 0.003619 0.003912 0.006395 0.006822 0.006398 0.006918 0.006765 0.007366<br />
+Ruby-1.9.2: 0.018158 0.017577 0.021608 0.023735 0.016365 0.019361 0.023855 0.024327 0.02903 0.032401<br />
+Perl: 0.016652 0.015514 0.014294 0.015016 0.015607 0.015555 0.017225 0.021482 0.032593 0.046648<br />
+Python: 0.078785 0.074991 0.065337 0.070789 0.073334 0.06341 0.064527 0.082283 0.077052 0.081154<br />
+Ruby-1.8.7: 0.02199 0.018868 0.024702 0.022364 0.02092 0.025425 0.029925 0.042073 0.052613 0.076533<br />
+Bash: 0.021872 0.027994 0.052569 0.112122 0.222159 0.71495 1.829128 4.942952 13.230605 34.971108</p>
+
+<p>画出的图表如下：<br />
+1. 包括 Bash, n = 2, 4, ..., 20
+<a href="http://blog.xiaoyong.org/wp-content/uploads/2010/11/graphWithBash_20.png"><img src="http://blog.xiaoyong.org/wp-content/uploads/2010/11/graphWithBash_20-300x225.png" alt="" title="graphWithBash_20" width="300" height="225" class="alignnone size-medium wp-image-233" /></a>
+2. 包括 Bash, n = 2, 4, ..., 12
+<a href="http://blog.xiaoyong.org/wp-content/uploads/2010/11/graphWithBash_12.png"><img src="http://blog.xiaoyong.org/wp-content/uploads/2010/11/graphWithBash_12-300x225.png" alt="" title="graphWithBash_12" width="300" height="225" class="alignnone size-medium wp-image-236" /></a>
+从图中可以看到 Bash 的效率大大低于其它语言。为了能看出其它语言之间的差别，把 Bash 剔除之后重新画图，得到以下结果。<br />
+3. 剔除 Bash, n = 2, 4, ..., 32
+<a href="http://blog.xiaoyong.org/wp-content/uploads/2010/11/graphNoBash_32.png"><img src="http://blog.xiaoyong.org/wp-content/uploads/2010/11/graphNoBash_32-300x225.png" alt="" title="graphNoBash_32" width="300" height="225" class="alignnone size-medium wp-image-237" /></a>
+在 n 取值较大时，效率是 C++ >> Ruby-1.9.2 > Python > Perl > Ruby-1.8.7<br />
+4. 剔除 Bash, n = 2, 4, ..., 24
+<a href="http://blog.xiaoyong.org/wp-content/uploads/2010/11/graphNoBash_24.png"><img src="http://blog.xiaoyong.org/wp-content/uploads/2010/11/graphNoBash_24-300x225.png" alt="" title="graphNoBash_24" width="300" height="225" class="alignnone size-medium wp-image-238" /></a>
+缩小 n 之后，发现 Python 比其它几个都要慢一点。<br />
+5. 剔除 Bash, n = 2, 4, ..., 16
+<a href="http://blog.xiaoyong.org/wp-content/uploads/2010/11/graphNoBash_16.png"><img src="http://blog.xiaoyong.org/wp-content/uploads/2010/11/graphNoBash_16-300x225.png" alt="" title="graphNoBash_16" width="300" height="225" class="alignnone size-medium wp-image-239" /></a>
+看得更仔细一点。</p>
+
+<p>总结：
+<ol>
+	<li>运行效率上，编译性语言 >> 解释性语言 >> 脚本语言</li>
+	<li>解释性语言之间也有几倍的差别</li>
+	<li>随着计算量的增大，各种语言的表现不尽相同，比如 Ruby-1.8.7 一开始比其它解释性语言都要快，后来比它们都要慢</li>
+	<li>对同一种解释性语言来说，解释器的改进可以极大地提高运行效率</li>
+</ol></p>
+
+<p>最后我要说：我们家 Ruby 不慢 :-)</p>
