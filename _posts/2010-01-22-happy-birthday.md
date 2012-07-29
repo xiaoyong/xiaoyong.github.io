@@ -14,4 +14,6 @@ comments: true
 
 开博第一篇文章，我祝自己生日快乐！
 
+<!--more-->
+
 ![A Cake](http://i1171.photobucket.com/albums/r546/xiaoyong/cake.gif)

@@ -5,7 +5,6 @@ category: Life
 tags:
 - 坏
 - 好
-- 平淡
 published: true
 comments: true
 ---
