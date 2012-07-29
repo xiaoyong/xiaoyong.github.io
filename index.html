@@ -1,0 +1,77 @@
+---
+layout: posts
+title: xiaoyong's Blog
+tagline: Supporting tagline
+---
+
+{% for post in paginator.posts %}
+
+  {% if forloop.last %}
+    <div class="content">
+  {% else %}
+    <div class="content" style="margin-bottom:60px">
+  {% endif %}
+
+    <div class="page-header">
+      <h1><a href="{{ BASE_PATH }}{{ post.url }}">{{ post.title }}</a> {% if post.tagline %} <small>{{ post.tagline }}</small>{% endif %}</h1>
+    </div>
+
+    <div class="row">
+      <div class="span8">
+        {{ post.content | split:'<!--more-->' | first }}
+        {% if post.content contains '<!--more-->' %}
+          <a href="{{ post.url }}">read more</a>
+        {% endif %}
+      </div>
+  
+      <div class="span4">
+        <h4>Published</h4>
+        <div class="date"><span>{{ post.date | date_to_long_string }}</span></div>
+
+        {% unless post.tags == empty %}
+          <h4>Tags</h4>
+          <ul class="tag_box">
+            {% assign tags_list = post.tags %}
+            {% include JB/tags_list %}
+          </ul>
+        {% endunless %}  
+      </div>
+    </div>
+  </div>
+
+{% endfor %}
+
+<!-- Pagination links -->
+<div class="pagination pagination-centered">
+  <ul>
+  {% if paginator.previous_page %}
+    {% if paginator.previous_page == 1 %}
+      <li><a href="/">Previous</a></li>
+    {% else %}
+      <li><a href="/page{{paginator.previous_page}}">Previous</a></li>
+    {% endif %}
+  {% else %}
+    <li class="disabled"><a href="#">Previous</a></li>
+  {% endif %}
+
+  {% if paginator.page == 1 %}
+    <li class="active"><a href="#">1</a></li>
+  {% else %}
+    <li><a href="/">1</a></li>
+  {% endif %}
+
+  {% for count in (2..paginator.total_pages) %}
+    {% if count == paginator.page %}
+      <li class="active"><a href="#">{{count}}</a></li>
+    {% else %}
+      <li><a href="/page{{count}}">{{count}}</a></li>
+    {% endif %}
+  {% endfor %}
+
+  {% if paginator.next_page %}
+    <li><a href="/page{{paginator.next_page}}">Next</a></li>
+  {% else %}
+    <li class="disabled"><a href="#">Next</a></li>
+  {% endif %}
+  </ul>
+</div>
