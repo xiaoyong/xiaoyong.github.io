@@ -19,7 +19,7 @@ tagline: Supporting tagline
     <div class="row">
       <div class="span8">
         {% if post.content contains '<!--more-->' %}
-          {{ post.content | summarize }}
+          {{ post.content | split:'<!--more-->' | first }}
           <p><a href="{{ post.url }}">read more</a></p>
         {% else %}
           {{ post.content }}
