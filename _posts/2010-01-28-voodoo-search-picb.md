@@ -44,6 +44,6 @@ comments: true
 
 简单来说，就是一项能够对 PICB 的共享资源按文件名搜索的服务。此项服务对非 PICB 的人没啥意义，因为您可以搜索到文件，却不能访问文件。
 
-聪明的您肯定发现了 Voodoo 的界面和我前面一篇文章所介绍的 [PerlShell]({% post_url 2010-01-23-perlshell %}) 非常像。实际上，后者正是对前者的继承（注意顺序）。
+聪明的您肯定发现了 Voodoo 的界面和我前面一篇文章所介绍的 [PerlShell](/Tech/2010/01/23/perlshell/) 非常像。实际上，后者正是对前者的继承（注意顺序）。
 
 最后，欢迎使用 [Voodoo](http://voodoo.xiaoyong.org/)！

@@ -13,12 +13,12 @@
       {% if page.previous %}
         <li class="previous"><a href="{{ BASE_PATH }}{{ page.previous.url }}">{{ page.previous.title }}</a></li>
       {% else %}
-        <li class="previous disabled"><a></a></li>
+        <li class="previous disabled"><a>I am the oldest</a></li>
       {% endif %}
       {% if page.next %}
         <li class="next"><a href="{{ BASE_PATH }}{{ page.next.url }}">{{ page.next.title }}</a></li>
       {% else %}
-        <li class="next disabled"><a></a></li>
+        <li class="next disabled"><a>I am the newest</a></li>
       {% endif %}
       </ul>
     </div>
