@@ -10,3 +10,8 @@ Thumbs.db
 .rvmrc
 
 .*.swp
+
+# LaTeX intermediate files
+cv/*.aux
+cv/*.log
+cv/*.out
