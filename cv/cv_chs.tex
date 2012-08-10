@@ -1,0 +1,138 @@
+%% start of file `template-zh.tex'.
+%% Copyright 2006-2012 Xavier Danaux (xdanaux@gmail.com).
+%
+% This work may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License version 1.3c,
+% available at http://www.latex-project.org/lppl/.
+
+
+\documentclass[11pt,a4paper,sans]{moderncv}   % possible options include font size ('10pt', '11pt' and '12pt'), paper size ('a4paper', 'letterpaper', 'a5paper', 'legalpaper', 'executivepaper' and 'landscape') and font family ('sans' and 'roman')
+
+% moderncv 主题
+\moderncvstyle{classic}                        % 选项参数是 ‘casual’, ‘classic’, ‘oldstyle’ 和 ’banking’
+\moderncvcolor{blue}                          % 选项参数是 ‘blue’ (默认)、‘orange’、‘green’、‘red’、‘purple’ 和 ‘grey’
+%\nopagenumbers{}                             % 消除注释以取消自动页码生成功能
+
+% 字符编码
+\usepackage[utf8]{inputenc}                   % 替换你正在使用的编码
+\usepackage{CJKutf8}
+
+% 调整页面出血
+\usepackage[scale=0.8]{geometry}
+%\setlength{\hintscolumnwidth}{3cm}           % 如果你希望改变日期栏的宽度
+
+% 个人信息
+\firstname{钟巧勇}
+\familyname{}
+%\firstname{巧勇}
+%\familyname{钟}
+%\title{简历题目 (可选项)}                      % 可选项、如不需要可删除本行
+\address{上海市岳阳路320号}{200031}             % 可选项、如不需要可删除本行
+\mobile{+86~1502~132~9454}                         % 可选项、如不需要可删除本行
+\phone{+86~21~5492~0235}                          % 可选项、如不需要可删除本行
+%\fax{+3~(456)~789~012}                            % 可选项、如不需要可删除本行
+\email{solary.sh@gmail.com}                    % 可选项、如不需要可删除本行
+\homepage{xiaoyong.org}                  % 可选项、如不需要可删除本行
+\extrainfo{1988年01月26日出生于浙江}                  % 可选项、如不需要可删除本行
+\photo[56pt][0.4pt]{xiaoyong.jpg}                  % ‘64pt’是图片必须压缩至的高度、‘0.4pt‘是图片边框的宽度 (如不需要可调节至0pt)、’picture‘ 是图片文件的名字;可选项、如不需要可删除本行
+%\quote{引言(可选项)}                           % 可选项、如不需要可删除本行
+
+% 显示索引号;仅用于在简历中使用了引言
+%\makeatletter
+%\renewcommand*{\bibliographyitemlabel}{\@biblabel{\arabic{enumiv}}}
+%\makeatother
+
+% 分类索引
+%\usepackage{multibib}
+%\newcites{book,misc}{{Books},{Others}}
+%----------------------------------------------------------------------------------
+%            内容
+%----------------------------------------------------------------------------------
+\begin{document}
+\begin{CJK}{UTF8}{gbsn}                       % 详情参阅CJK文件包
+\maketitle
+
+\section{教育背景}
+\cventry{2009年 --\\现在}{硕博连读研究生}{中国科学院上海生命科学研究院计算生物学研究所}{上海}{}{生物中的模式运算研究小组}  % 第3到第6编码可留白
+\cventry{2005年 -- 2009年}{生物技术理学学士}{南京大学生命科学学院}{南京}{}{生理学专业方向}
+
+
+\section{研究经历}
+\cventry{2011年6月 -- 7月}{访问学生}{波鸿鲁尔大学}{德国波鸿}{}{生物物理学系生物信息学研究小组}
+\cvitem{博士研究\\项目}{%
+\begin{itemize}%
+  \item Image registration between FTIR image and HE stained image of human colorectal cancer
+  \item \href{http://anno.bph.rub.de/}{\color{cyan}Webapp}: a web application for FTIR tissue image annotation
+  \item Classification of FTIR tissue images using Tree Classifiers
+\end{itemize}}
+\cvitem{轮转项目}{Inferring genetic structure of admixed human populations using SNP data}
+\cvitem{学士论文}{\href{http://www.picb.ac.cn/wsmotif/}{\color{cyan}WSmotif}: Prediction of human transcription factor binding sites (TFBSs)}
+\cvitem{竞赛}{%
+\begin{itemize}%
+  \item[$\dagger$] 2012 年“有道难题”网易创新大赛，\emph{Candy} 队，作品“{\href{https://github.com/xiaoyong/yirisanxing}{\color{cyan}一日三省}}”，东部赛区三等奖
+  \item[$\dagger$] RubyVSPython Planet Conquer 2012 April Contest，冠军
+  \item[$\dagger$] Morgan Stanley Code Storm 2011，\emph{Blue Moon} 队，排名 11/20（上海交大赛区）
+  \item[$\dagger$] 红帽 2010 大学生 Linux 技能大赛，积极参与奖
+\end{itemize}}
+\cvitem{开源软件\\项目}{%
+\begin{itemize}%
+  \item {\href{http://voodoo.xiaoyong.org/}{\color{cyan}Voodoo}: a PICB file search engine based on mlocate}
+  \item 查看更多：\url{https://github.com/xiaoyong}
+\end{itemize}}
+
+
+\section{语言}
+\cvitemwithcomment{英语}{大学英语六级}{熟悉并适应英语工作环境}
+\cvitemwithcomment{汉语}{母语}{普通话以及另外两种方言}
+
+
+\section{职业技能}
+\subsection{学术}
+\cvitem{简介}{研究方向是生物医学图像处理，熟悉数字图象处理、模式识别、统计学等知识和技术。}
+%\newpage
+\subsection{编程}
+\cvdoubleitem{Matlab}{精通，使用频繁}{C/C++}{熟练}
+\cvdoubleitem{Ruby}{精通，用于简单的脚本和乐趣}{Shell (Bash)}{熟练，用于和计算机交互}
+\cvitem{网页开发}{熟悉 HTML, CSS, JavaScript 和 jQuery；了解基于 Ruby 的框架（Ruby on Rails 和 Sinatra）}
+\subsection{计算机}
+\cvdoubleitem{操作系统}{精通 Linux, Mac OS X 和 Windows 的使用}{办公和排版}{熟练使用微软 Office 和 {\LaTeX}}
+%\cvdoubleitem{Text Editing}{Expert on Vim}{}{}
+
+
+\section{兴趣爱好}
+\renewcommand{\listitemsymbol}{-~}            % change the symbol for lists
+\cvlistdoubleitem{篮球}{徒步旅行}
+\cvlistdoubleitem{电影}{音乐}
+
+%\section{其他 1}
+%\cvlistitem{项目 1}
+%\cvlistitem{项目 2}
+%\cvlistitem{项目 3}
+
+%\renewcommand{\listitemsymbol}{-}             % 改变列表符号
+
+%\section{其他 2}
+%\cvlistdoubleitem{项目 1}{项目 4}
+%\cvlistdoubleitem{项目 2}{项目 5\cite{book1}}
+%\cvlistdoubleitem{项目 3}{} 
+% 来自BibTeX文件但不使用multibib包的出版物
+%\renewcommand*{\bibliographyitemlabel}{\@biblabel{\arabic{enumiv}}}% BibTeX的数字标签
+\nocite{*}
+\bibliographystyle{plain}
+\bibliography{publications}                    % 'publications' 是BibTeX文件的文件名
+
+% 来自BibTeX文件并使用multibib包的出版物
+%\section{出版物}
+%\nocitebook{book1,book2}
+%\bibliographystylebook{plain}
+%\bibliographybook{publications}               % 'publications' 是BibTeX文件的文件名
+%\nocitemisc{misc1,misc2,misc3}
+%\bibliographystylemisc{plain}
+%\bibliographymisc{publications}               % 'publications' 是BibTeX文件的文件名
+
+%\clearpage
+\end{CJK}
+\end{document}
+
+
+%% 文件结尾 `template-zh.tex'.
