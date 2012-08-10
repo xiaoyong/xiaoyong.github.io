@@ -7,4 +7,4 @@ group: navigation
 {% include JB/setup %}
 
 * English: [cv_eng.pdf](/cv/cv_eng.pdf)
-* Chinese: to be added...
+* Chinese: [cv_chs.pdf](/cv/cv_chs.pdf)
