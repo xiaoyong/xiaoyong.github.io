@@ -3,7 +3,7 @@ layout: post
 title: "My Zsh Prompt Theme"
 description: ""
 category: Tech
-tags: [Zsh, Prompt]
+tags: ['Zsh', 'Prompt']
 ---
 
 As a member of CLI party, a nice prompt of my shell env is a **must**!. After
@@ -20,7 +20,7 @@ precmd() {
 	vcs_info
 }
 setopt prompt_subst
-# Red -> Green -> Blue -> Magenta, the light spectrum
+# Red -> Green -> Blue -> Magenta, the light spectrum of rainbow
 PROMPT='%{$fg[red]%}%n%{$reset_color%}@%{$fg[green]%}%m %{$fg[blue]%}%~ %{$reset_color%}
 %{$fg[magenta]%}%#%{$reset_color%} '
 RPROMPT='${vcs_info_msg_0_}'
@@ -36,6 +36,6 @@ And in Bash, the same effect (without vcs info, of course) requires the followin
 {% highlight bash %}
 # ~/.bashrc
 PS1='\[\e[0;31m\]\u\[\e[0m\]@\[\e[0;32m\]\h\[\e[0m\] \[\e[0;34m\]\w\[\e[0m\]\n\[\e[0;35m\]\$\[\e[0m\] '
-{ %endhighlight %}
+{% endhighlight %}
 
-The magic numbers (0;3*) are used to specify coors. WTF!
+The magic numbers (0;3*) are used to specify colors. WTF!
