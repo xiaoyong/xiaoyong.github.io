@@ -15,3 +15,5 @@ Thumbs.db
 cv/*.aux
 cv/*.log
 cv/*.out
+cv/*.bbl
+cv/*.blg

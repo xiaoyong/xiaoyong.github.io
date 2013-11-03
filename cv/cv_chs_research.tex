@@ -13,10 +13,12 @@
 \moderncvstyle{classic}                        % 选项参数是 ‘casual’, ‘classic’, ‘oldstyle’ 和 ’banking’
 \moderncvcolor{red}                          % 选项参数是 ‘blue’ (默认)、‘orange’、‘green’、‘red’、‘purple’ 和 ‘grey’
 %\nopagenumbers{}                             % 消除注释以取消自动页码生成功能
-\usepackage{setspace}
 
 % 字符编码
 %\usepackage[utf8]{inputenc}                   % 替换你正在使用的编码
+
+%%%%%%%%%%%%%%%%%%% Begin Customization %%%%%%%%%%%%%%%%%%%%
+\usepackage{setspace} % 调整行距
 % 中文支持
 \usepackage{fontspec,xltxtra,xunicode}
 \usepackage[slantfont,boldfont]{xeCJK}
@@ -36,7 +38,24 @@
 \newcommand*{\kaishu}{\CJKfamily{zhkai}} % 楷书
 \newcommand*{\fangsong}{\CJKfamily{zhfs}} % 仿宋
 
-\renewcommand*{\namefont}{\Huge\sffamily\mdseries\upshape}
+% 让汉化更彻底
+\renewcommand*{\namefont}{\Huge\sffamily\mdseries\upshape} % 姓名用黑体
+% cventry改用中文的标点符号
+\renewcommand*{\cventry}[7][.25em]{%
+  \cvitem[#1]{#2}{%
+    {\bfseries#3}%
+    \ifthenelse{\equal{#4}{}}{}{，{\slshape#4}}%
+    \ifthenelse{\equal{#5}{}}{}{，#5}%
+    \ifthenelse{\equal{#6}{}}{}{，#6}%
+    \strut%
+    \ifx&#7&%
+      \else{\newline{}\begin{minipage}[t]{\linewidth}\small#7\end{minipage}}\fi}}
+\renewcommand*{\refname}{发表论文} % Publications -> 发表论文
+%%%%%%%%%%%%%%%%%%%% End Customization %%%%%%%%%%%%%%%%%%%%%
+
+% My own commands
+\newcommand*{\eduseparator}{{\color{gray}\hrule}} % 教育背景分隔符
+\newcommand*{\hrefcolor}[2]{\href{#1}{\color{blue}#2}} % 创建链接
 
 % 调整页面出血
 \usepackage[scale=0.8]{geometry}
@@ -52,7 +71,7 @@
 \email{solary.sh@gmail.com}                    % 可选项、如不需要可删除本行
 \homepage{xiaoyong.org}                  % 可选项、如不需要可删除本行
 \extrainfo{1988年1月26日出生于浙江金华}                 % 可选项、如不需要可删除本行
-\photo[48pt][0.4pt]{../xiaoyong.jpg}                  % ‘64pt’是图片必须压缩至的高度、‘0.4pt‘是图片边框的宽度 (如不需要可调节至0pt)、’picture‘ 是图片文件的名字;可选项、如不需要可删除本行
+\photo[48pt][0.4pt]{xiaoyong.jpg}                  % ‘64pt’是图片必须压缩至的高度、‘0.4pt‘是图片边框的宽度 (如不需要可调节至0pt)、’picture‘ 是图片文件的名字;可选项、如不需要可删除本行
 %\quote{引言(可选项)}                          % 可选项、如不需要可删除本行
 
 % 显示索引号;仅用于在简历中使用了引言
@@ -77,11 +96,11 @@
 
 \section{教育背景}
 \cventry{2009年9月 -- 现在}{硕博连读研究生}{中国科学院上海生命科学研究院计算生物学研究所}{上海}{}{计算生物学专业，生物中的模式识别研究组，生物医学图像处理方向} % 第3到第6编码可留白
-\hrule
+\eduseparator
 \cventry{2012年12月 -- 2013年9月}{联合培养博士生}{波鸿鲁尔大学}{德国波鸿}{}{生物物理系生物信息学研究组}
-\hrule
+\eduseparator
 \cventry{2011年6月 -- 2011年7月}{访问学生}{波鸿鲁尔大学}{德国波鸿}{}{生物物理系生物信息学研究组}
-\hrule
+\eduseparator
 \cventry{2005年9月 -- 2009年6月}{理学学士}{南京大学生命科学学院}{南京}{}{生物技术专业，生理学方向}
 
 
@@ -102,15 +121,15 @@
 \cvitem{竞赛}{%
 \begin{itemize}%
   \item[$\dagger$]
-    2012年“有道难题”网易手机软件创新大赛，\emph{Candy}队队员，作品“{\href{https://github.com/xiaoyong/yirisanxing}{\color{magenta}一日三省}}”（Android平台，Java开发），获东部赛区三等奖
+    2012年“有道难题”网易手机软件创新大赛，\emph{Candy}队队员，作品“\hrefcolor{https://github.com/xiaoyong/yirisanxing}{一日三省}”（Android平台，Java开发），获东部赛区三等奖
   \item[$\dagger$] RubyVSPython Planet Conquer 2012 April Contest，用Ruby编程，获得冠军
   \item[$\dagger$] Morgan Stanley Code Storm 2011模拟市场交易比赛，\emph{Blue Moon}队队员，用Python编程，涉及算法实现和网络编程，最后排名11/20（上海交大赛区）
 \end{itemize}}
 \cvitem{开源软件项目}{%
 \begin{description}%
-  \item[\href{http://voodoo.xiaoyong.org/}{\color{magenta}Voodoo}:
+  \item[\hrefcolor{http://voodoo.xiaoyong.org/}{Voodoo}:
     PICB文件搜索网站]采用Sinatra Web框架搭建，搜索后端基于mlocate程序。
-  \item 查看更多：\url{https://github.com/xiaoyong}
+  \item 查看更多：\hrefcolor{https://github.com/xiaoyong}{xiaoyong@GitHub}
 \end{description}}
 
 \section{获奖情况}
@@ -129,10 +148,9 @@
 \subsection{编程}
 \cvdoubleitem{Matlab}{精通}{C/C++}{熟悉}
 \cvdoubleitem{Python}{精通}{Shell (Bash)}{熟悉}
-%\cvitem{网页开发}{熟悉HTML，CSS和JavaScript；了解基于Ruby的Web框架（Ruby on Rails和Sinatra）}
 \subsection{计算机}
 \cvitemwithcomment{证书}{江苏省高等学校计算机二级}{优秀}
-\cvitem{操作系统}{精通Windows, Mac OS X和Linux的使用}
+\cvitem{操作系统}{精通Windows，Mac OS X和Linux的使用}
 \cvitem{办公和排版}{熟练使用微软Office和{\LaTeX}}
 %\cvdoubleitem{Text Editing}{Expert on Vim}{}{}
 
