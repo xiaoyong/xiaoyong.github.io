@@ -17,3 +17,5 @@ cv/*.log
 cv/*.out
 cv/*.bbl
 cv/*.blg
+cv/*.fdb_latexmk
+cv/*.fls
