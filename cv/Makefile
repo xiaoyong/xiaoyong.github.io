@@ -1,4 +1,4 @@
-cv_chs = cv_chs.pdf cv_chs_research.pdf cv_chs_IT.pdf cv_chs_edu.pdf
+cv_chs = cv_chs.pdf cv_chs_research.pdf cv_chs_IT.pdf cv_chs_edu.pdf cv_chs_programmer.pdf
 cv_eng = cv_eng.pdf
 all: $(cv_chs) $(cv_eng)
 

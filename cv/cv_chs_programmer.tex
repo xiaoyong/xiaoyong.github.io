@@ -104,19 +104,6 @@
 \cventry{2005年9月 -- 2009年6月}{理学学士}{南京大学生命科学学院}{南京}{}{生物技术专业，生理学方向}
 
 
-\section{研究经历}
-\cvitem{在德国}{%
-  \begin{description} \addtolength{\itemsep}{0.5\baselineskip}%
-    \item[“通过FT-IR光谱显微成像技术检测人体尿液中的癌变细胞”]首先对同一个样本的H\&E染色图和FT-IR光谱图进行自动匹配，然后请病理学家注释图像中的细胞，产生训练集。根据训练集，用随机森林分类器预测未知的细胞类型。可用于癌细胞的机器诊断。
-    \item[“为振动显微光谱图像分析选择最小冗余的波数”]对于高维数据，根据特征之间的冗余性，以非监督的方式作特征选择。此方法被用于CARS光谱图像，一方面可以减少实验中需要测量的光谱数量，另一方面可以提高分类的准确率。
-  \end{description}}
-\cvitem{在上海}{%
-\begin{description}%
-  \item[“人体结肠FT-IR显微光谱图像的分割，注释和分类”]首先对图像的像素点进行层次聚类，得到树状图。通过砍树分割图像，对分割出的图像区域进行人工注释。得到训练集后，可用机器学习方法识别未知图像中的组织构成。同时，还用了一种新的Tree
-    Assignment方法来计算树的最优分割方案。基于Tree
-    Assignment，系统而定量地验证了不同聚类方法的效果。研究成果已发表~\cite{zhong:2013a}。
-\end{description}}
-
 \section{编程项目}
 \cvitem{竞赛}{%
 \begin{itemize}%
@@ -132,6 +119,19 @@
   \item 查看更多：\hrefcolor{https://github.com/xiaoyong}{xiaoyong@GitHub}
 \end{description}}
 
+
+\section{研究经历}
+\cvitem{在德国}{%
+  \begin{description} \addtolength{\itemsep}{0.5\baselineskip}%
+    \item[“通过FT-IR光谱显微成像技术检测人体尿液中的癌变细胞”]根据细胞的FT-IR光谱特征，用随机森林分类器预测未知的细胞类型。可用于癌细胞的机器诊断。
+    \item[“为振动显微光谱图像分析选择最小冗余的波数”]对于高维数据，根据特征之间的冗余性，以非监督的方式作特征选择。
+  \end{description}}
+\cvitem{在上海}{%
+\begin{description}%
+  \item[“人体结肠FT-IR显微光谱图像的分割，注释和分类”]首先对图像的像素点进行层次聚类，得到聚类树。然后用一种新的Tree
+    Assignment方法来计算树的最优分割方案。研究成果已发表~\cite{zhong:2013a}。
+\end{description}}
+
 \section{获奖情况}
 \cvitem{2013年}{中科院上海生命科学研究院三好学生}
 \cvitem{2007年}{南京大学优秀学生}
@@ -143,11 +143,12 @@
 
 
 \section{专业技能}
-\subsection{学术}
-\cvitem{}{研究方向是生物医学图像处理，掌握数字图像处理、模式识别、机器学习、统计学等方面的知识和技术。同时具有夯实的生物学基础，熟悉生理学、生物化学、遗传学等。}
 \subsection{编程}
 \cvdoubleitem{Python}{精通}{C/C++}{熟悉}
 \cvdoubleitem{Matlab}{精通}{Shell (Bash)}{熟悉}
+\cvitem{网页开发}{熟悉前端开发（HTML，CSS，JavaScript和jQuery等）；了解基于Ruby的Web框架（Ruby on Rails和Sinatra），以及MySQL服务器的配置和使用。}
+\subsection{学术}
+\cvitem{}{研究方向是生物医学图像处理，掌握数字图像处理、模式识别、机器学习、统计学等方面的知识和技术。}
 \subsection{计算机技能}
 \cvitem{}{通过\textbf{江苏省高等学校计算机二级}，熟悉Windows、Mac OS X和Linux操作系统，能熟练使用微软Office和{\LaTeX}排版软件。}
 
