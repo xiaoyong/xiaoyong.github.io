@@ -1,0 +1,21 @@
+cv_chs.pdf
+	the main document
+*cv_chs_IT.pdf
+	general IT
+*cv_chs_research_bioinf.pdf
+	research related in bioinformatics
+*cv_chs_research_cs.pdf
+	research related in computer science
+*cv_chs_sa.pdf
+	system administrator
+
+cv_chs_edu.pdf
+	biology teacher in a high school
+cv_chs_programmer.pdf
+	programmer
+
+cv_eng.pdf
+	English version
+
+# Notes:
+* derived from cv_chs.pdf
