@@ -2,11 +2,11 @@ cv_chs = cv_chs.pdf cv_chs_research_bioinf.pdf cv_chs_research_cs.pdf cv_chs_IT.
 cv_eng = cv_eng.pdf
 all: $(cv_chs) $(cv_eng)
 
-%.pdf: %.tex publications.bib xiaoyong.jpg
+%.pdf: %.tex publications.bib xiaoyong.jpg research_experience_long.tex research_experience_short.tex
 	latexmk -xelatex -quiet $<
 
 cv_chs_research_cs.tex: cv_chs_research_bioinf.tex
-	sed -e 's/同时具有夯实的生物学基础.*遗传学等。/熟悉数据结构、算法设计与分析。/' cv_chs_research_bioinf.tex > cv_chs_research_cs.tex
+	sed -e 's/同时具有夯实的生物学基础.*遗传学等。/熟悉数据结构、算法设计与分析。/' -e 's/，生理学方向//' cv_chs_research_bioinf.tex > cv_chs_research_cs.tex
 
 cv_chs_research_bioinf.tex: cv_chs.tex
 	grep -v '\cvitem{网页开发}' cv_chs.tex > cv_chs_research_bioinf.tex

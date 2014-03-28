@@ -43,8 +43,8 @@
 % cventry改用中文的标点符号
 \renewcommand*{\cventry}[7][.25em]{%
   \cvitem[#1]{#2}{%
-    {\bfseries#3}%
-    \ifthenelse{\equal{#4}{}}{}{，{\slshape#4}}%
+    {\slshape#3}%
+    \ifthenelse{\equal{#4}{}}{}{，{\bfseries#4}}%
     \ifthenelse{\equal{#5}{}}{}{，#5}%
     \ifthenelse{\equal{#6}{}}{}{，#6}%
     \strut%
@@ -95,7 +95,7 @@
 \onehalfspacing
 
 \section{教育背景}
-\cventry{2009年9月 -- 现在}{硕博连读研究生}{中国科学院上海生命科学研究院计算生物学研究所}{上海}{}{计算生物学专业，生物中的模式识别研究组，生物医学图像处理方向} % 第3到第6编码可留白
+\cventry{2009年9月 -- 现在}{硕博连读研究生}{中国科学院上海生命科学研究院计算生物学研究所}{上海}{}{计算生物学专业，生物学中的模式识别研究组，生物医学图像处理方向} % 第3到第6编码可留白
 \eduseparator
 \cventry{2012年12月 -- 2013年9月}{联合培养博士生}{波鸿鲁尔大学}{德国波鸿}{}{生物物理系生物信息学研究组}
 \eduseparator
@@ -161,7 +161,7 @@
 % 来自BibTeX文件但不使用multibib包的出版物
 %\renewcommand*{\bibliographyitemlabel}{\@biblabel{\arabic{enumiv}}}% BibTeX的数字标签
 \nocite{*}
-\bibliographystyle{unsrt}
+\bibliographystyle{abbrv}
 \bibliography{publications}                    % 'publications' 是BibTeX文件的文件名
 
 % 来自BibTeX文件并使用multibib包的出版物

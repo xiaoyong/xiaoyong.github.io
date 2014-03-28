@@ -43,8 +43,8 @@
 % cventry改用中文的标点符号
 \renewcommand*{\cventry}[7][.25em]{%
   \cvitem[#1]{#2}{%
-    {\bfseries#3}%
-    \ifthenelse{\equal{#4}{}}{}{，{\slshape#4}}%
+    {\slshape#3}%
+    \ifthenelse{\equal{#4}{}}{}{，{\bfseries#4}}%
     \ifthenelse{\equal{#5}{}}{}{，#5}%
     \ifthenelse{\equal{#6}{}}{}{，#6}%
     \strut%
@@ -95,7 +95,7 @@
 \onehalfspacing
 
 \section{教育背景}
-\cventry{2009年9月 -- 现在}{硕博连读研究生}{中国科学院上海生命科学研究院计算生物学研究所}{上海}{}{计算生物学专业，生物中的模式识别研究组，生物医学图像处理方向} % 第3到第6编码可留白
+\cventry{2009年9月 -- 现在}{硕博连读研究生}{中国科学院上海生命科学研究院计算生物学研究所}{上海}{}{计算生物学专业，生物学中的模式识别研究组，生物医学图像处理方向} % 第3到第6编码可留白
 \eduseparator
 \cventry{2012年12月 -- 2013年9月}{联合培养博士生}{波鸿鲁尔大学}{德国波鸿}{}{生物物理系生物信息学研究组}
 \eduseparator
@@ -111,14 +111,14 @@
   \item[$\dagger$]
     2012年“有道难题”网易手机软件创新大赛，\emph{Candy}队队员，作品“\hrefcolor{https://github.com/xiaoyong/yirisanxing}{一日三省}”（Android平台，Java开发），获东部赛区三等奖
   \item[$\dagger$] RubyVSPython Planet Conquer 2012 April Contest，用Ruby编程，获得冠军
-  \item[$\dagger$] Morgan Stanley Code Storm 2011模拟市场交易比赛，\emph{Blue Moon}队队员，用Python编程，涉及算法实现和网络编程，最后排名11/20（上海交大赛区）
+%  \item[$\dagger$] Morgan Stanley Code Storm 2011模拟市场交易比赛，\emph{Blue Moon}队队员，用Python编程，涉及算法实现和网络编程，最后排名11/20（上海交大赛区）
 \end{itemize}}
-\cvitem{开源软件项目}{%
-\begin{description}%
-  \item[\hrefcolor{http://voodoo.xiaoyong.org/}{Voodoo}:
-    PICB文件搜索网站]采用Sinatra Web框架搭建，搜索后端基于mlocate程序。
-  \item 查看更多：\hrefcolor{https://github.com/xiaoyong}{xiaoyong@GitHub}
-\end{description}}
+%\cvitem{开源软件项目}{%
+%\begin{description}%
+%  \item[\hrefcolor{http://voodoo.xiaoyong.org/}{Voodoo}:
+%    PICB文件搜索网站]采用Sinatra Web框架搭建，搜索后端基于mlocate程序。
+%  \item 查看更多：\hrefcolor{https://github.com/xiaoyong}{xiaoyong@GitHub}
+%\end{description}}
 
 \section{获奖情况}
 \cvitem{2013年}{中科院上海生命科学研究院三好学生}
@@ -134,8 +134,8 @@
 \subsection{学术}
 \cvitem{}{研究方向是生物医学图像处理，掌握数字图像处理、模式识别、机器学习、统计学等方面的知识和技术。同时具有夯实的生物学基础，熟悉生理学、生物化学、遗传学等。}
 \subsection{编程}
-\cvdoubleitem{Python}{精通}{C/C++}{熟悉}
-\cvdoubleitem{Matlab}{精通}{Shell (Bash)}{熟悉}
+\cvdoubleitem{Matlab}{精通}{C/C++}{熟悉}
+\cvdoubleitem{Python}{精通}{Shell (Bash)}{熟悉}
 \subsection{计算机技能}
 \cvitem{}{通过\textbf{江苏省高等学校计算机二级}，熟悉Windows、Mac OS X和Linux操作系统，能熟练使用微软Office和{\LaTeX}排版软件。}
 
@@ -159,7 +159,7 @@
 % 来自BibTeX文件但不使用multibib包的出版物
 %\renewcommand*{\bibliographyitemlabel}{\@biblabel{\arabic{enumiv}}}% BibTeX的数字标签
 \nocite{*}
-\bibliographystyle{unsrt}
+\bibliographystyle{abbrv}
 \bibliography{publications}                    % 'publications' 是BibTeX文件的文件名
 
 % 来自BibTeX文件并使用multibib包的出版物
