@@ -59,14 +59,14 @@
 
 % 调整页面出血
 \usepackage[scale=0.8]{geometry}
-\setlength{\hintscolumnwidth}{2.7cm}           % 如果你希望改变日期栏的宽度
+\setlength{\hintscolumnwidth}{2cm}           % 如果你希望改变日期栏的宽度
 
 % 个人信息
 \name{钟巧勇}{}
 %\title{简历题目 (可选项)}                     % 可选项、如不需要可删除本行
-\address{上海市岳阳路320号}{200031}            % 可选项、如不需要可删除本行
+\address{上海市岳阳路320号 200031}{}            % 可选项、如不需要可删除本行
 \phone[mobile]{150~2132~9454}              % 可选项、如不需要可删除本行
-%\phone[fixed]{021~5492~0235}               % 可选项、如不需要可删除本行
+\phone[fixed]{021~5492~0235}               % 可选项、如不需要可删除本行
 %\phone[fax]{+3~(456)~789~012}                 % 可选项、如不需要可删除本行
 \email{solary.sh@gmail.com}                    % 可选项、如不需要可删除本行
 \homepage{xiaoyong.org}                  % 可选项、如不需要可删除本行
@@ -95,13 +95,13 @@
 \onehalfspacing
 
 \section{教育背景}
-\cventry{2009年9月 -- 现在}{硕博连读研究生}{中国科学院上海生命科学研究院计算生物学研究所}{上海}{}{计算生物学专业，生物学中的模式识别研究组，生物医学图像处理方向} % 第3到第6编码可留白
+\cventry{2009/09 -- 现在}{硕博连读研究生}{中国科学院上海生命科学研究院计算生物学研究所}{上海}{}{计算生物学专业，生物学中的模式识别研究组，生物医学图像处理方向} % 第3到第6编码可留白
 \eduseparator
-\cventry{2012年12月 -- 2013年9月}{联合培养博士生}{波鸿鲁尔大学}{德国波鸿}{}{生物物理系生物信息学研究组}
+\cventry{2012/12 -- 2013/09}{联合培养博士生}{波鸿鲁尔大学}{德国波鸿}{}{生物物理系生物信息学研究组}
 \eduseparator
-\cventry{2011年6月 -- 2011年7月}{访问学生}{波鸿鲁尔大学}{德国波鸿}{}{生物物理系生物信息学研究组}
+\cventry{2011/06 -- 2011/07}{访问学生}{波鸿鲁尔大学}{德国波鸿}{}{生物物理系生物信息学研究组}
 \eduseparator
-\cventry{2005年9月 -- 2009年6月}{理学学士}{南京大学生命科学学院}{南京}{}{生物技术专业，生理学方向}
+\cventry{2005/09 -- 2009/06}{理学学士}{南京大学生命科学学院}{南京}{}{生物技术专业}
 
 \input{research_experience_long.tex}
 
@@ -113,12 +113,14 @@
   \item[$\dagger$] RubyVSPython Planet Conquer 2012 April Contest，用Ruby编程，获得冠军
 %  \item[$\dagger$] Morgan Stanley Code Storm 2011模拟市场交易比赛，\emph{Blue Moon}队队员，用Python编程，涉及算法实现和网络编程，最后排名11/20（上海交大赛区）
 \end{itemize}}
-%\cvitem{开源软件项目}{%
-%\begin{description}%
-%  \item[\hrefcolor{http://voodoo.xiaoyong.org/}{Voodoo}:
-%    PICB文件搜索网站]采用Sinatra Web框架搭建，搜索后端基于mlocate程序。
-%  \item 查看更多：\hrefcolor{https://github.com/xiaoyong}{xiaoyong@GitHub}
-%\end{description}}
+\cvitem{开源软件}{%
+\begin{description}%
+  \item[\hrefcolor{https://github.com/xiaoyong/2048-Qt}{2048-Qt}]2048数字游戏的桌面版，使用了C++，JavaScript，Qt混合编程。可跨平台运行（Windows，Linux和Mac
+    OS X）。
+  \item[\hrefcolor{http://voodoo.xiaoyong.org/}{Voodoo}:
+    PICB文件搜索网站]采用Sinatra Web框架搭建，搜索后端基于mlocate程序。
+  \item 查看更多：\hrefcolor{https://github.com/xiaoyong}{xiaoyong@GitHub}
+\end{description}}
 
 \section{获奖情况}
 \cvitem{2013年}{中科院上海生命科学研究院三好学生}
@@ -127,24 +129,21 @@
 
 %\newpage
 \section{语言技能}
-\cvitem{英语}{\textbf{大学英语六级}水平，熟悉并适应英语工作环境}
+\cvitem{英语}{\textbf{大学英语六级}，熟悉并适应英语工作环境}
 
 
 \section{专业技能}
-\subsection{学术}
-\cvitem{}{研究方向是生物医学图像处理，掌握数字图像处理、模式识别、机器学习、统计学等方面的知识和技术。同时具有夯实的生物学基础，熟悉生理学、生物化学、遗传学等。}
-\subsection{编程}
-\cvdoubleitem{Matlab}{精通}{C/C++}{精通}
-\cvdoubleitem{Python}{熟练}{Shell (Bash)}{熟练}
+\cvitem{课程}{数据结构、算法设计与分析、数字图像处理、模式识别、机器学习、生物统计学、生物化学、分子生物学、细胞生物学等。}
+\cvitem{算法}{线性规划，聚类分析（$k$-means、Fuzzy
+$c$-means、层次聚类），分类器（决策树、随机森林、支持向量机、神经网络），图像分割（阈值法、分水岭算法）。}
+\cvitem{编程}{精通Matlab、C/C++，熟悉Python、Ruby、Shell以及OpenCV库。}
 \cvitem{网页开发}{熟悉前端开发（HTML，CSS，JavaScript和jQuery等）；了解基于Ruby的Web框架（Ruby on Rails和Sinatra），以及MySQL服务器的配置和使用。}
-\subsection{计算机技能}
-\cvitem{}{通过\textbf{江苏省高等学校计算机二级}，熟悉Windows、Mac OS X和Linux操作系统，能熟练使用微软Office和{\LaTeX}排版软件。}
 
 
-\section{兴趣爱好}
-\renewcommand{\listitemsymbol}{-~}            % change the symbol for lists
-\cvlistdoubleitem{篮球}{电影}
-\cvlistdoubleitem{钓鱼}{阅读}
+%\section{兴趣爱好}
+%\renewcommand{\listitemsymbol}{-~}            % change the symbol for lists
+%\cvlistdoubleitem{篮球}{电影}
+%\cvlistdoubleitem{钓鱼}{阅读}
 
 %\section{其他 1}
 %\cvlistitem{项目 1}
@@ -160,7 +159,7 @@
 % 来自BibTeX文件但不使用multibib包的出版物
 %\renewcommand*{\bibliographyitemlabel}{\@biblabel{\arabic{enumiv}}}% BibTeX的数字标签
 \nocite{*}
-\bibliographystyle{abbrv}
+\bibliographystyle{unsrt}
 \bibliography{publications}                    % 'publications' 是BibTeX文件的文件名
 
 % 来自BibTeX文件并使用multibib包的出版物
